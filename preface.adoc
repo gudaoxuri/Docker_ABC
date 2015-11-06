@@ -1,0 +1,13 @@
+[preface]
+== 序言
+
+image::images/docker.png[]
+
+Docker可谓是当下炙手可热的工具，如同Java当然提出的 “Write once, run anywhere” 类似 Docker所能实现的是 “Building once run anywhere” ,这是一个伟大的创举，当然Java的一个理念却被NodeJS打脸，这是后话。
+
+这段时间要组织公司的Docker的培训，正好做个知识沉淀，故写此`快餐书`，与世面上众多的Docker书籍相比，本书希望做到的是从速入门、上手、实战，关注怎么使用，对于背后的原理不会做这多的涉及。
+
+
+_gudaoxuri @ asto_
+
+_2015-11-06_

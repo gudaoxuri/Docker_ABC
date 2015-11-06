@@ -1,0 +1,29 @@
+== 又一个**容器**
+
+=== 什么是容器
+
+.盒子
+image::images/container1.jpg[]
+
+.Tomcat
+image::images/container2.jpg[]
+
+.Spring
+image::images/container3.jpg[]
+
+=== 容器的作用
+
+.容器作用
+|====================
+| 容器 |  作用
+
+| 盒子 |  盛放东西
+| Tomcat |  支撑Web（Servlet）服务
+| Spring |  服务管理
+|====================
+
+=== 那么，
+
+
+
+
