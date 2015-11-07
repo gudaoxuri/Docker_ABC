@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3-dev">
-<meta name="author" content="gudaoxuri(i@sunisle.org)">
+<meta name="author" content="gudaoxuri ">
 <title>Docker ABC</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -2134,89 +2134,150 @@ p {
 <div id="header">
 <h1>Docker ABC</h1>
 <div class="details">
-<span id="author" class="author">gudaoxuri(i@sunisle.org)</span><br>
+<span id="author" class="author">gudaoxuri </span><br>
+<span id="email" class="email"><a href="mailto:i@sunisle.org">i@sunisle.org</a></span><br>
+<span id="revnumber">version 1.0.0,</span>
+<span id="revdate">Nov 6, 2015</span>
 </div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#truepreface">1. Preface</a></li>
-<li><a href="#trueexample-colophon">2. Example Colophon</a></li>
-<li><a href="#trueexample-dedication">3. Example Dedication</a></li>
-<li><a href="#trueexample-glossary">4. Example Glossary</a></li>
-<li><a href="#true-docker">5. 什么是Docker</a>
+<li><a href="#true-">1. 序言</a></li>
+<li><a href="#true--2">2. 版权说明</a></li>
+<li><a href="#true--3">3. 贡献者</a></li>
+<li><a href="#true-docker">4. 什么是Docker</a>
 <ul class="sectlevel2">
-<li><a href="#true-">5.1. 权威解释</a></li>
-<li><a href="#true--2">5.2. 通俗地说&#8230;&#8203;</a></li>
+<li><a href="#true--4">4.1. 权威解释</a></li>
+<li><a href="#true--5">4.2. 通俗地说&#8230;&#8203;</a></li>
 </ul>
 </li>
-<li><a href="#true--3">6. 核心概念</a></li>
-<li><a href="#true--4">7. 基础</a>
+<li><a href="#true--6">5. 核心概念</a></li>
+<li><a href="#true--7">6. 基础</a>
 <ul class="sectlevel2">
-<li><a href="#true-hub-docker-com">7.1. 获取Hub.docker.com镜像</a></li>
-<li><a href="#true--5">7.2. 查看本机镜像</a></li>
-<li><a href="#true--6">7.3. 运行镜像</a></li>
-<li><a href="#true--7">7.4. 查看本机容器</a></li>
-<li><a href="#true--8">7.5. 删除容器</a></li>
-<li><a href="#true--9">7.6. 停止/运行/重启容器</a></li>
+<li><a href="#true-mysql">6.1. 获取MySQL镜像</a></li>
+<li><a href="#true--8">6.2. 查看本机镜像</a></li>
+<li><a href="#true-mysql-2">6.3. 运行MySQL镜像</a></li>
+<li><a href="#true--9">6.4. 查看本机容器</a></li>
+<li><a href="#true-mysql-3">6.5. 删除MySQL容器</a></li>
+<li><a href="#true-mysql-4">6.6. 停止/运行/重启MySQL容器</a></li>
+<li><a href="#true--10">6.7. 完成</a></li>
 </ul>
 </li>
-<li><a href="#true--10">8. 进阶</a></li>
-<li><a href="#true--11">9. 高级</a></li>
-<li><a href="#true--12">10. 附</a></li>
-<li><a href="#trueexample-index">11. Example Index</a></li>
+<li><a href="#true--11">7. 进阶</a>
+<ul class="sectlevel2">
+<li><a href="#true-redis">7.1. 获取Redis镜像并运行</a></li>
+<li><a href="#true-mysql-5">7.2. 获取MySQL镜像并运行</a></li>
+<li><a href="#true--12">7.3. 创建相应的数据库及权限</a></li>
+<li><a href="#true-gitlab">7.4. 获取Gitlab镜像</a></li>
+<li><a href="#true-gitlab-2">7.5. 运行Gitlab镜像</a></li>
+<li><a href="#true--13">7.6. 查看运行日志</a></li>
+<li><a href="#true--14">7.7. 完成</a></li>
+</ul>
+</li>
+<li><a href="#true--15">8. 高级</a>
+<ul class="sectlevel2">
+<li><a href="#true--16">8.1. 构建镜像的两种方法</a></li>
+<li><a href="#truedockerfile">8.2. Dockerfile介绍</a></li>
+<li><a href="#true--17">8.3. 构建规划</a></li>
+<li><a href="#truessh">8.4. SSH镜像</a></li>
+<li><a href="#true-ssh">8.5. 编译SSH镜像</a></li>
+<li><a href="#truejava">8.6. Java镜像</a></li>
+<li><a href="#truescala">8.7. Scala镜像</a></li>
+<li><a href="#true-java-scala">8.8. 编译Java/Scala镜像</a></li>
+<li><a href="#true--18">8.9. 发布镜像</a>
+<ul class="sectlevel3">
+<li><a href="#true-github">8.9.1. 使用github发布镜像</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#true--19">9. 网络</a></li>
+<li><a href="#true--20">10. 生态系统</a>
+<ul class="sectlevel2">
+<li><a href="#truedocker-toolbox">10.1. Docker Toolbox</a></li>
+<li><a href="#truekitematic">10.2. Kitematic</a></li>
+<li><a href="#truepipework">10.3. pipework</a></li>
+<li><a href="#truedocker-swarm">10.4. Docker Swarm</a></li>
+</ul>
+</li>
+<li><a href="#true--21">11. 热点问题</a>
+<ul class="sectlevel2">
+<li><a href="#true-ip">11.1. 容器如何使用静态IP</a></li>
+<li><a href="#true-a-id-qanda-add-port-to-alive-container-a">11.2. 如何为运行中的容器增加访问端口<a id="qanda-add-port-to-alive-container"></a></a></li>
+<li><a href="#true-docker-ip">11.3. 让Docker容器使用静态独立的外部IP（便于集群组建）</a></li>
+</ul>
+</li>
+<li><a href="#true--22">12. 附</a></li>
+<li><a href="#true--23">13. 索引</a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="truepreface"><a class="anchor" href="#truepreface"></a>1. Preface</h2>
+<h2 id="true-"><a class="anchor" href="#true-"></a>1. 序言</h2>
 <div class="sectionbody">
+<div class="imageblock">
+<div class="content">
+<img src="images/docker.png" alt="docker.png">
+</div>
+</div>
 <div class="paragraph">
-<p>Optional preface.</p>
+<p>Docker可谓是当下炙手可热的工具，如同Java当然提出的 “Write once, run anywhere” 类似 Docker所能实现的是 “Building once run anywhere” ,这是一个伟大的创举，当然Java的一个理念却被NodeJS打脸，这是后话。</p>
+</div>
+<div class="paragraph">
+<p>这段时间要组织公司的Docker的培训，正好做个知识沉淀，故写此<code>快餐书</code>，与世面上众多的Docker书籍相比，本书希望做到的是从速入门、上手、实战，关注怎么使用，对于背后的原理不会做这多的涉及。</p>
+</div>
+<div class="paragraph">
+<p><em>gudaoxuri @ asto</em></p>
+</div>
+<div class="paragraph">
+<p><em>2015-11-06</em></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueexample-colophon"><a class="anchor" href="#trueexample-colophon"></a>2. Example Colophon</h2>
+<h2 id="true--2"><a class="anchor" href="#true--2"></a>2. 版权说明</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Text at the end of a book describing facts about its production.</p>
+<p><strong>Copyleft</strong> ！</p>
+</div>
+<div class="paragraph">
+<p>您可以自由使用、散布、改作，但也请保持开源共享。</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueexample-dedication"><a class="anchor" href="#trueexample-dedication"></a>3. Example Dedication</h2>
+<h2 id="true--3"><a class="anchor" href="#true--3"></a>3. 贡献者</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Optional dedication.</p>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. 贡献者名单</caption>
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">贡献者</th>
+<th class="tableblock halign-left valign-top">所属</th>
+<th class="tableblock halign-left valign-top">内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gudaoxuri</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">杭州阿思拓电子商务有限公司</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">建立文档</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueexample-glossary"><a class="anchor" href="#trueexample-glossary"></a>4. Example Glossary</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Glossaries are optional. Glossaries entries are an example of a style of AsciiDoc labeled lists.</p>
-</div>
-<div class="dlist glossary">
-<dl>
-<dt>A glossary term</dt>
-<dd>
-<p>The corresponding (indented) definition.</p>
-</dd>
-<dt>A second glossary term</dt>
-<dd>
-<p>The corresponding (indented) definition.</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="true-docker"><a class="anchor" href="#true-docker"></a>5. 什么是Docker</h2>
+<h2 id="true-docker"><a class="anchor" href="#true-docker"></a>4. 什么是Docker</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="true-"><a class="anchor" href="#true-"></a>5.1. 权威解释</h3>
+<h3 id="true--4"><a class="anchor" href="#true--4"></a>4.1. 权威解释</h3>
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
@@ -2244,7 +2305,7 @@ p {
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--2"><a class="anchor" href="#true--2"></a>5.2. 通俗地说&#8230;&#8203;</h3>
+<h3 id="true--5"><a class="anchor" href="#true--5"></a>4.2. 通俗地说&#8230;&#8203;</h3>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -2264,7 +2325,7 @@ p {
 </div>
 </div>
 <div class="sect1">
-<h2 id="true--3"><a class="anchor" href="#true--3"></a>6. 核心概念</h2>
+<h2 id="true--6"><a class="anchor" href="#true--6"></a>5. 核心概念</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>在正式使用Docker前我们先简述几个核心概念。</p>
@@ -2305,7 +2366,7 @@ p {
 </div>
 </div>
 <div class="sect1">
-<h2 id="true--4"><a class="anchor" href="#true--4"></a>7. 基础</h2>
+<h2 id="true--7"><a class="anchor" href="#true--7"></a>6. 基础</h2>
 <div class="sectionbody">
 <div class="quoteblock">
 <blockquote>
@@ -2327,7 +2388,7 @@ p {
 </table>
 </div>
 <div class="sect2">
-<h3 id="true-hub-docker-com"><a class="anchor" href="#true-hub-docker-com"></a>7.1. 获取Hub.docker.com镜像</h3>
+<h3 id="true-mysql"><a class="anchor" href="#true-mysql"></a>6.1. 获取MySQL镜像</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2400,7 +2461,7 @@ Docker镜像的命名格式 <code>&lt;用户名，官方镜像不需要/&gt;镜�
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--5"><a class="anchor" href="#true--5"></a>7.2. 查看本机镜像</h3>
+<h3 id="true--8"><a class="anchor" href="#true--8"></a>6.2. 查看本机镜像</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2420,7 +2481,7 @@ mysql                  latest              196db1908492        6 days ago       
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--6"><a class="anchor" href="#true--6"></a>7.3. 运行镜像</h3>
+<h3 id="true-mysql-2"><a class="anchor" href="#true-mysql-2"></a>6.3. 运行MySQL镜像</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2448,7 +2509,7 @@ mysql                  latest              196db1908492        6 days ago       
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--7"><a class="anchor" href="#true--7"></a>7.4. 查看本机容器</h3>
+<h3 id="true--9"><a class="anchor" href="#true--9"></a>6.4. 查看本机容器</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2489,14 +2550,14 @@ CONTAINER ID        IMAGE      COMMAND                CREATED             STATUS
 <i class="fa icon-warning" title="Warning"></i>
 </td>
 <td class="content">
-Docker目前（v1.7）还不支持为容器绑定端口，如有此需求请查看 <a href="http://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container" class="bare">http://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container</a>
+Docker目前（v1.7）还不支持为容器绑定端口，如有此需求请查看<a href="#qanda-add-port-to-alive-container">如何为运行中的容器增加访问端口</a>
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--8"><a class="anchor" href="#true--8"></a>7.5. 删除容器</h3>
+<h3 id="true-mysql-3"><a class="anchor" href="#true-mysql-3"></a>6.5. 删除MySQL容器</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2604,7 +2665,7 @@ Docker的访问机制简单说明：Docker所有的对外服务统一使用<code
 </div>
 </div>
 <div class="sect2">
-<h3 id="true--9"><a class="anchor" href="#true--9"></a>7.6. 停止/运行/重启容器</h3>
+<h3 id="true-mysql-4"><a class="anchor" href="#true-mysql-4"></a>6.6. 停止/运行/重启MySQL容器</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2622,8 +2683,11 @@ root@ubuntu:~# docker restart app1-db
 app1-db</code></pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="true--10"><a class="anchor" href="#true--10"></a>6.7. 完成</h3>
 <div class="paragraph">
-<p>对于<code>MySQL</code>容器如何升级/数据如何备份都方式都可以在 <a href="https://hub.docker.com/_/mysql/" class="bare">https://hub.docker.com/_/mysql/</a> 获取到指导。</p>
+<p><code>MySQL</code>容器如何升级/数据如何备份都方式都可以在 <code><a href="https://hub.docker.com/_/mysql/" class="bare">https://hub.docker.com/_/mysql/</a></code> 获取到指导。</p>
 </div>
 <div class="paragraph">
 <p>至此，我们基础使用就介绍完了！</p>
@@ -2632,12 +2696,12 @@ app1-db</code></pre>
 </div>
 </div>
 <div class="sect1">
-<h2 id="true--10"><a class="anchor" href="#true--10"></a>8. 进阶</h2>
+<h2 id="true--11"><a class="anchor" href="#true--11"></a>7. 进阶</h2>
 <div class="sectionbody">
 <div class="quoteblock">
 <blockquote>
 <div class="paragraph">
-<p>本节我们以运行<code>Gitiab</code>实例为例，进一步介绍Docker的常规使用。</p>
+<p>本节我们以运行<code>Gitlab</code>实例为例，进一步介绍Docker的常规使用。</p>
 </div>
 </blockquote>
 </div>
@@ -2648,18 +2712,13 @@ app1-db</code></pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-上节<code>MySQL</code>是独立的镜像，没有依赖，但<code>Gitiab</code>会依赖数据库及缓存，我们看看容器间如何交互。<code>Gitiab</code>有官方镜像，但我更喜欢<code>sameersbn</code>的版本，这个版本介绍详细，并且作者一直在持续更新。
+上节<code>MySQL</code>是独立的镜像，没有依赖，但<code>Gitlab</code>会依赖数据库及缓存，我们看看容器间如何交互。<code>Gitlab</code>有官方镜像，但我更喜欢<code>sameersbn</code>的版本，这个版本介绍详细，并且作者一直在持续更新。
 </td>
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>获取<code>Redis</code>镜像并运行</p>
-</li>
-</ul>
-</div>
+<div class="sect2">
+<h3 id="true-redis"><a class="anchor" href="#true-redis"></a>7.1. 获取Redis镜像并运行</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:~# docker pull redis
@@ -2668,13 +2727,9 @@ root@ubuntu:~# docker run --name gitlab-cache -d redis
 a2c183f16cee0aa30eca8f27875d3770ac1291fc22b218d4b5e673ce604074c8</code></pre>
 </div>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>获取<code>MySQL</code>镜像并运行</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="true-mysql-5"><a class="anchor" href="#true-mysql-5"></a>7.2. 获取MySQL镜像并运行</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:~# mkdir -p /opt/test/gitlab/db/ <i class="conum" data-value="1"></i><b>(1)</b>
@@ -2692,9 +2747,12 @@ root@ubuntu:~# docker run --name gitlab-db -e MYSQL_ROOT_PASSWORD=123456 -d -p 3
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="true--12"><a class="anchor" href="#true--12"></a>7.3. 创建相应的数据库及权限</h3>
 <div class="listingblock">
 <div class="content">
-<pre>root@ubuntu:~# docker exec -it gitlab-db /bin/bash
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:~# docker exec -it gitlab-db /bin/bash
 root@7c8110b8151e:/# mysql -uroot -p123456
 mysql: [Warning] Using a password on the command line interface can be insecure.
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -2721,7 +2779,7 @@ Query OK, 0 rows affected (0.00 sec)
 mysql&gt; exit
 Bye
 root@7c8110b8151e:/# exit
-exit</pre>
+exit</code></pre>
 </div>
 </div>
 <div class="admonitionblock tip">
@@ -2731,7 +2789,7 @@ exit</pre>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-<code>exec</code>表示进入一个运行中的容器
+<code>exec</code>  表示进入一个运行中的容器
 </td>
 </tr>
 </table>
@@ -2748,13 +2806,9 @@ MySQL中执行的语句见： <a href="https://hub.docker.com/r/sameersbn/gitlab
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p>获取<code>Gitiab</code>镜像</p>
-</li>
-</ul>
 </div>
+<div class="sect2">
+<h3 id="true-gitlab"><a class="anchor" href="#true-gitlab"></a>7.4. 获取Gitlab镜像</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:~# mkdir -p /opt/test/gitlab/data <i class="conum" data-value="1"></i><b>(1)</b>
@@ -2769,6 +2823,9 @@ root@ubuntu:~# docker pull sameersbn/gitlab</code></pre>
 </tr>
 </table>
 </div>
+</div>
+<div class="sect2">
+<h3 id="true-gitlab-2"><a class="anchor" href="#true-gitlab-2"></a>7.5. 运行Gitlab镜像</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:~# docker run --name=gitlab -d \
@@ -2892,6 +2949,13 @@ Docker默认情况下容器间是不能互访的，要实现交互主要有两�
 <li>
 <p>访问一下：<code><a href="http://192.168.4.99:10080" class="bare">http://192.168.4.99:10080</a></code> (192.168.4.99是我宿主机的IP)，等等，为什么访问不了？</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true--13"><a class="anchor" href="#true--13"></a>7.6. 查看运行日志</h3>
+<div class="ulist">
+<ul>
 <li>
 <p>在出问题时我们首先想到的是 <strong>去看看日志</strong> ,Docker容器运行日志的查看如下：</p>
 </li>
@@ -2973,6 +3037,9 @@ root@ubuntu:~# docker run --name=gitlab -d \
  sameersbn/gitlab</pre>
 </div>
 </div>
+</div>
+<div class="sect2">
+<h3 id="true--14"><a class="anchor" href="#true--14"></a>7.7. 完成</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2999,29 +3066,661 @@ root@ubuntu:~# docker run --name=gitlab -d \
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="true--11"><a class="anchor" href="#true--11"></a>9. 高级</h2>
+<h2 id="true--15"><a class="anchor" href="#true--15"></a>8. 高级</h2>
 <div class="sectionbody">
+<div class="quoteblock">
+<blockquote>
 <div class="paragraph">
-<p>Unresolved directive in &lt;stdin&gt; - include::attach.adoc[]</p>
+<p>本节我介绍如何自己构建一个Docker镜像，我们将构建一个支持scala的运行（ <a href="http://www.scala-lang.org" class="bare">http://www.scala-lang.org</a> ）环境，并且对外开放SSH服务。</p>
 </div>
+</blockquote>
 </div>
+<div class="sect2">
+<h3 id="true--16"><a class="anchor" href="#true--16"></a>8.1. 构建镜像的两种方法</h3>
+<div class="paragraph">
+<p>构建镜像有两种方法：</p>
 </div>
-<div class="sect1">
-<h2 id="true--12"><a class="anchor" href="#true--12"></a>10. 附</h2>
-<div class="sectionbody">
-<div class="ulist bibliography">
-<div class="title">Docker文档</div>
-<ul class="bibliography">
+<div class="olist arabic">
+<ol class="arabic">
 <li>
-<p><a href="https://docs.docker.com/" class="bare">https://docs.docker.com/</a></p>
+<p>运行并进行一个基础容器（如centos ， <code>docker run -it centos /bin/bash</code>），然后安装需要的环境，再用<code>commit</code>  将容器保存成新的镜像</p>
+</li>
+<li>
+<p>使用<code>Dockerfile</code>构建，这也是推荐的做法</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>本节我们仅介绍第2种方法。</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truedockerfile"><a class="anchor" href="#truedockerfile"></a>8.2. Dockerfile介绍</h3>
+<div class="paragraph">
+<p>Dokcerfile是用于构建Docker镜像的元文件，它的说明及语法见： <a href="http://docs.docker.com/engine/reference/builder/" class="bare">http://docs.docker.com/engine/reference/builder/</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true--17"><a class="anchor" href="#true--17"></a>8.3. 构建规划</h3>
+<div class="paragraph">
+<p>根据需求可以发现我们安装的主要环境有三个：SSH服务、Java环境（Scala依赖它）、Scala环境，与软件开发一样，我们也可以<code>分模块</code>构建，即构建三个镜像：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>只包含SSH服务的基础镜像</p>
+</li>
+<li>
+<p>带SSH及Java环境的镜像</p>
+</li>
+<li>
+<p>带SSH、Java及Scala环境的镜像</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truessh"><a class="anchor" href="#truessh"></a>8.4. SSH镜像</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-script" data-lang="script">FROM centos:centos7 <i class="conum" data-value="1"></i><b>(1)</b>
+MAINTAINER gudaoxuri <i class="conum" data-value="2"></i><b>(2)</b>
+
+#---------------Use 163 mirrors-------------<i class="conum" data-value="3"></i><b>(3)</b>
+RUN yum install -y wget &amp;&amp;\
+    mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup &amp;&amp; \
+    wget -P /etc/yum.repos.d/ http://mirrors.163.com/.help/CentOS7-Base-163.repo &amp;&amp; \
+    yum clean all &amp;&amp; \
+    yum makecache <i class="conum" data-value="4"></i><b>(4)</b>
+
+#---------------Install Common Tools---------------
+RUN yum install -y sed curl tar gcc gcc-c++ make git passwd sudo
+
+#---------------Modify Time Zone---------------
+ENV TZ "Asia/Shanghai" <i class="conum" data-value="5"></i><b>(5)</b>
+ENV TERM xterm
+
+RUN yum install -y ntpdate  &amp;&amp; \
+    cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
+#---------------Support Chinese---------------
+#RUN yum groupinstall -y "Fonts"  &amp;&amp; \
+#    echo "LANG=\"zh_CN.UTF-8\"" &gt;&gt; /etc/sysconfig/i18n
+
+#---------------Install SSH---------------
+RUN yum install -y openssh-server openssh-clients  &amp;&amp; \
+    sed -i 's/UsePAM yes/UsePAM no/g' /etc/ssh/sshd_config  &amp;&amp; \
+    echo 'root:123456' | chpasswd  &amp;&amp; \
+    ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key  &amp;&amp; \
+    ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key  &amp;&amp; \
+    mkdir /var/run/sshd
+
+#---------------Setting Common Path---------------
+RUN chmod 777 -R /opt/  &amp;&amp; \
+    mkdir /opt/env/  &amp;&amp; \
+    mkdir /opt/workspaces/
+
+EXPOSE 22 <i class="conum" data-value="6"></i><b>(6)</b>
+
+CMD ["/usr/sbin/sshd", "-D"] <i class="conum" data-value="7"></i><b>(7)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td> <code>FROM</code> 表示此镜像是基于哪个镜像构建的</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="2"></i><b>2</b></td>
+<td> <code>MAINTAINER</code> 开发者的信息</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="3"></i><b>3</b></td>
+<td>  # 注释</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="4"></i><b>4</b></td>
+<td> <code>RUN</code> 常用命令，用于执行Linux的命令，多用于安装组件</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="5"></i><b>5</b></td>
+<td> <code>ENV</code> 常用命令，用于设置环境变量</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="6"></i><b>6</b></td>
+<td> <code>EXPOSE</code> 表明默认对外暴露的端口(<code>docker run -P</code>)</td>
+</tr>
+<tr>
+<td><i class="conum" data-value="7"></i><b>7</b></td>
+<td> <code>CMD</code> 要执行的服务，多条<code>CMD</code>只执行最后一条</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>RUN</code> 参数的学问，Docker镜像是分层的，一个镜像可能由多个层组成，一次<code>RUN</code>实际上就产生了一层，在编译<code>Dockerfile</code>的过程中可能出错，重新编译时我们会发现之前已成功编译的层不会再次被编译
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true-ssh"><a class="anchor" href="#true-ssh"></a>8.5. 编译SSH镜像</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">root@ubuntu:/opt/test/dockerfile/ssh# ls
+Dockerfile
+root@ubuntu:/opt/test/dockerfile/ssh# docker build -t gudaoxuri/ssh .
+Sending build context to Docker daemon 3.072 kB
+Sending build context to Docker daemon
+Step 0 : FROM centos:centos7
+Pulling repository centos
+ce20c473cd8a: Download complete
+ce20c473cd8a: Pulling image (centos7) from centos
+168a69b62202: Download complete
+812e9d9d677f: Download complete
+4234bfdd88f8: Download complete
+Status: Downloaded newer image for centos:centos7
+ ---&gt; ce20c473cd8a
+Step 1 : MAINTAINER gudaoxuri
+ ---&gt; Running in 889ea744c458
+ ---&gt; 5b1151e6cb0b
+Removing intermediate container 889ea744c458
+
+...
+
+Step 10 : CMD /usr/sbin/sshd -D
+ ---&gt; Running in ce563073b686
+ ---&gt; b61a4adad85f
+Removing intermediate container ce563073b686
+Successfully built b61a4adad85f
+
+root@ubuntu:/opt/test/dockerfile/ssh# docker images
+REPOSITORY             TAG                 IMAGE ID            CREATED             VIRTUAL SIZE
+gudaoxuri/ssh          latest              b61a4adad85f        10 minutes ago      966 MB
+...</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truejava"><a class="anchor" href="#truejava"></a>8.6. Java镜像</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-script" data-lang="script">FROM gudaoxuri/ssh:latest <i class="conum" data-value="1"></i><b>(1)</b>
+MAINTAINER gudaoxuri
+
+#---------------Install Java---------------
+RUN wget -P /opt/env/ --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie"  http://download.oracle.com/otn-pub/java/jdk/8u60-b27/jdk-8u60-linux-x64.tar.gz  &amp;&amp; \
+    tar -xzf /opt/env/jdk-8u60-linux-x64.tar.gz -C /opt/env/  &amp;&amp; \
+    rm /opt/env/jdk-8u60-linux-x64.tar.gz  &amp;&amp; \
+    mv /opt/env/jdk1.8.0_60 /opt/env/java  &amp;&amp; \
+    echo "export JAVA_HOME=/opt/env/java" &gt;&gt; /etc/profile
+ENV  JAVA_HOME /opt/env/java
+
+RUN echo 'PATH=$PATH:$JAVA_HOME/bin' &gt;&gt; /etc/profile
+ENV PATH $PATH:$JAVA_HOME/bin</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td><code>gudaoxuri/ssh:latest</code> 就是我们之前编译的镜像</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truescala"><a class="anchor" href="#truescala"></a>8.7. Scala镜像</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-script" data-lang="script">FROM gudaoxuri/java:latest
+MAINTAINER gudaoxuri
+
+#---------------Install Scala---------------
+RUN wget -P /opt/env/ http://downloads.typesafe.com/scala/2.10.6/scala-2.10.6.tgz  &amp;&amp; \
+    tar -xzf /opt/env/scala-2.10.6.tgz -C /opt/env/  &amp;&amp; \
+    rm /opt/env/scala-2.10.6.tgz  &amp;&amp; \
+    mv /opt/env/scala-2.10.6 /opt/env/scala  &amp;&amp; \
+    echo "export SCALA_HOME=/opt/env/scala" &gt;&gt; /etc/profile
+ENV SCALA_HOME /opt/env/scala
+
+RUN sed /^PATH=/d /etc/profile &gt;&gt; /etc/profile &amp;&amp; \
+   echo 'PATH=$PATH:$JAVA_HOME/bin:$SCALA_HOME/bin' &gt;&gt; /etc/profile
+ENV PATH $PATH:$JAVA_HOME/bin:$SCALA_HOME/bin</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true-java-scala"><a class="anchor" href="#true-java-scala"></a>8.8. 编译Java/Scala镜像</h3>
+<div class="paragraph">
+<p>过程同上，略</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true--18"><a class="anchor" href="#true--18"></a>8.9. 发布镜像</h3>
+<div class="paragraph">
+<p>有了新的镜像后我们希望把这个镜像发布到<code>hub.docker.com</code>上去分享，有两种方式：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>使用 <code>docker push</code> 发布前要先登录  <code>docker login</code></p>
+</li>
+<li>
+<p>使用<code>github</code>发布</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+介于国内网络环境恶劣，第1种方式失败概率很高，因为它上传的是生成的镜像（几百MB到几G不等），所以推荐使用第2种方式
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+请先注册<code>hub.docker.com</code> 及 <code>github.com</code> 的账号
+</td>
+</tr>
+</table>
+</div>
+<div class="sect3">
+<h4 id="true-github"><a class="anchor" href="#true-github"></a>8.9.1. 使用github发布镜像</h4>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-important" title="Important"></i>
+</td>
+<td class="content">
+不要用<code>IE</code>操作，笔者使用<code>IE11</code>在<code>hub.docker.com</code>上操作时发生过不小的困扰。
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>hub.docker.com</code> 上建立<code>github</code>连接</p>
 </li>
 </ul>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_link.png" alt="deep publish link.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>github</code>中设置权限</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_git_auth.png" alt="deep publish git auth.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>github</code>中建一个开源项目，注意要包含<code>Dockerfile</code>文件</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_create_git.png" alt="deep publish create git.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>github</code>中设置这个项目的权限</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_git_auth2.png" alt="deep publish git auth2.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>hub.docker.com</code> 上建立自动构建项目</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_create_auto.png" alt="deep publish create auto.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>hub.docker.com</code> 上选择<code>github</code>上的项目</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_select_git.png" alt="deep publish select git.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>在<code>hub.docker.com</code> 上设置项目属性</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_create_image.png" alt="deep publish create image.png">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>不多时就构建好了</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/deep_publish_result.png" alt="deep publish result.png">
+</div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+更详细的说明见： <a href="https://docs.docker.com/docker-hub/github/" class="bare">https://docs.docker.com/docker-hub/github/</a>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="trueexample-index"><a class="anchor" href="#trueexample-index"></a>11. Example Index</h2>
+<h2 id="true--19"><a class="anchor" href="#true--19"></a>9. 网络</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Docker的很多问题都是网络设置引发的，所以这里有必要介绍一下Docker的网络处理。</p>
+</div>
+<div class="paragraph">
+<p>在容器运行时Docker提供了<code>--net</code>参数来指定容器的网络，它有四种选项：</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>--net=bridge</code> 这是默认选项，会为容器分配独立的网络环境</p>
+</li>
+<li>
+<p><code>--net=host</code> 让容器使用宿主机的网络环境，<strong>注意</strong> 这意味着放弃了容器的网络隔离，它让容器可以访问宿主机的权限，不推荐使用</p>
+</li>
+<li>
+<p><code>--net=container:NAME_or_ID</code> 让容器与另一个容器共用网络环境，这样的话两者就可以相互通信</p>
+</li>
+<li>
+<p><code>--net=none</code> Docker不去管理容器的网络，用户可以自定义容器的网络设置，这选项自由度最高</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="true--20"><a class="anchor" href="#true--20"></a>10. 生态系统</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>随着Docker如火如荼地发展，它的应用场景也越来越广泛，群众的想像力是无限的，这导致了Docker本身的功能往往无法满足人们凶残的需求，所以产生了一大堆的扩展应用，Docker与这些扩展应用、“寄生”公司相辅相成，共同发展。</p>
+</div>
+<div class="paragraph">
+<p>下面介绍几个不错的扩展</p>
+</div>
+<div class="sect2">
+<h3 id="truedocker-toolbox"><a class="anchor" href="#truedocker-toolbox"></a>10.1. Docker Toolbox</h3>
+<div class="paragraph">
+<p>请您在Windows下使用Docker，实际上就是安装了个Visual Box ~~</p>
+</div>
+<div class="paragraph">
+<p><a href="https://www.docker.com/docker-toolbox" class="bare">https://www.docker.com/docker-toolbox</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truekitematic"><a class="anchor" href="#truekitematic"></a>10.2. Kitematic</h3>
+<div class="paragraph">
+<p>Docker官方推荐的GUI工具</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ecosys_kitematic.png" alt="ecosys kitematic.png">
+</div>
+</div>
+<div class="paragraph">
+<p><a href="https://kitematic.com/" class="bare">https://kitematic.com/</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truepipework"><a class="anchor" href="#truepipework"></a>10.3. pipework</h3>
+<div class="paragraph">
+<p>一个功能多多的网络扩展工具包</p>
+</div>
+<div class="paragraph">
+<p><a href="https://github.com/jpetazzo/pipework" class="bare">https://github.com/jpetazzo/pipework</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="truedocker-swarm"><a class="anchor" href="#truedocker-swarm"></a>10.4. Docker Swarm</h3>
+<div class="paragraph">
+<p>让Docker运行在多个宿主机上</p>
+</div>
+<div class="paragraph">
+<p><a href="http://docs.docker.com/swarm/install-w-machine/" class="bare">http://docs.docker.com/swarm/install-w-machine/</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="true--21"><a class="anchor" href="#true--21"></a>11. 热点问题</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="true-ip"><a class="anchor" href="#true-ip"></a>11.1. 容器如何使用静态IP</h3>
+<div class="paragraph">
+<p>默认情况下Docker容器的IP是动态分配的，要使用静态IP时我们会思考一下：</p>
+</div>
+<div class="paragraph">
+<p>为什么需要静态IP？如果是为了两个容器间通信可以</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>使用<code>--link</code></p>
+</li>
+<li>
+<p>指定<code>-h</code>来指定hostname并指定<code>-dns</code>到宿主机</p>
+</li>
+<li>
+<p>让容器开放上层服务</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>如果这样都满足不了您的要求那么可以参考 <a href="http://huataihuang.github.io/2014/10/05/docker-container-static-ip/" class="bare">http://huataihuang.github.io/2014/10/05/docker-container-static-ip/</a> 此文实现</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true-a-id-qanda-add-port-to-alive-container-a"><a class="anchor" href="#true-a-id-qanda-add-port-to-alive-container-a"></a>11.2. 如何为运行中的容器增加访问端口<a id="qanda-add-port-to-alive-container"></a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">iptables -t nat -A  DOCKER -p tcp --dport &lt;外部映射端口&gt; -j DNAT --to-destination &lt;宿主机IP&gt;:&lt;容器新加的端口&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><a href="http://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container" class="bare">http://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="true-docker-ip"><a class="anchor" href="#true-docker-ip"></a>11.3. 让Docker容器使用静态独立的外部IP（便于集群组建）</h3>
+<div class="paragraph">
+<p>需要使用Docker虚拟化Hadoop/Spark等测试环境，并且要可以对外提供服务，要求是完全分布式的部署（尽量模拟生产环境）。那么我们会遇到几个问题：</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Container IP 是动态分配的</p>
+</li>
+<li>
+<p>Container IP 是内部IP，外部无法访问（如对外提供HDFS服务可能会遇到Client无法访问DataNode，因为DataNode注册的是内部IP）</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>针对第一个问题有不少的方案，可以指定静态的IP，对第二个问题，我们可以使用--net=host解决，但这会导致对外只有一个IP，集群各个Slave的端口都要修改。至于pipework简单地看了下，好像也解决不了。</p>
+</div>
+<div class="paragraph">
+<p>所以目前看上去只能使用看上去不是很优雅的方案解决:*<strong>为Docker宿主网卡绑定多个IP，把这些IP分配给不同的容器。</strong></p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">//这是示例，我是在windows下用Docker toolbox运行的
+root@default:~# ifconfig
+docker0   Link encap:Ethernet  HWaddr 02:42:8C:8E:80:F1
+          inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 08:00:27:24:D1:F5
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe24:d1f5/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:222 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:164 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:32277 (31.5 KiB)  TX bytes:28136 (27.4 KiB)
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B
+          inet addr:192.168.99.100  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe76:1d9b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:66 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:64 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:9001 (8.7 KiB)  TX bytes:10469 (10.2 KiB)
+
+lo        Link encap:Local Loopback
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0
+          RX bytes:1152 (1.1 KiB)  TX bytes:1152 (1.1 KiB)
+
+//eth1网卡是可以与外部交互，所以我们添加IP到这个网卡上
+//第一步：添加了两个IP
+root@default:~# ifconfig eth1:0 192.168.99.10 netmask 255.255.255.0 up
+root@default:~# ifconfig eth1:1 192.168.99.11 netmask 255.255.255.0 up
+//再次查看，多了两个IP
+root@default:~# ifconfig
+...
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B
+          inet addr:192.168.99.100  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe76:1d9b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2258 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1685 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000
+          RX bytes:207033 (202.1 KiB)  TX bytes:209587 (204.6 KiB)
+
+eth1:0    Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B
+          inet addr:192.168.99.10  Bcast:192.168.99.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+
+eth1:1    Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B
+          inet addr:192.168.99.11  Bcast:192.168.99.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+...
+
+//第二步：运行容器，指定IP，这里的示例容器开启的SSH服务，后面拿它测试
+root@default:~# docker run -d -p 192.168.99.10:222:22 --name ssh1 gudaoxuri/scala-2.11-env
+root@default:~# docker run -d -p 192.168.99.11:222:22 --name ssh2 gudaoxuri/scala-2.11-env
+root@default:~# docker ps
+CONTAINER ID        IMAGE                      COMMAND               CREATED             STATUS              PORTS                       NAMES
+ab024af9c954        gudaoxuri/scala-2.11-env   "/usr/sbin/sshd -D"   4 seconds ago       Up 3 seconds        192.168.99.11:222-&gt;22/tcp   ssh2
+259351134d16        gudaoxuri/scala-2.11-env   "/usr/sbin/sshd -D"   15 seconds ago      Up 14 seconds       192.168.99.10:222-&gt;22/tcp   ssh1
+
+//测试连接，在Docker宿主机上SSH到第一个容器
+root@default:~# ssh 192.168.99.10 -p222
+The authenticity of host '[192.168.99.10]:222 ([192.168.99.10]:222)' can't be established.
+RSA key fingerprint is ac:fe:4b:89:f8:51:b7:e9:9c:34:62:f9:80:38:4b:bf.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[192.168.99.10]:222' (RSA) to the list of known hosts.
+root@192.168.99.10's password:
+Last login: Wed Oct  7 13:12:35 2015 from 192.168.99.1
+//成功进入
+[root@259351134d16 ~]#
+//在第一个容器中SSH到第二个容器
+[root@259351134d16 ~]# ssh 192.168.99.11 -p222
+root@192.168.99.11's password:
+Last login: Wed Oct  7 13:14:53 2015 from 172.17.42.1
+//也OK了
+[root@ab024af9c954 ~]#</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>参考我的Blog <a href="http://my.oschina.net/gudaoxuri/blog/513923" class="bare">http://my.oschina.net/gudaoxuri/blog/513923</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="true--22"><a class="anchor" href="#true--22"></a>12. 附</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<div class="title">Docker文档</div>
+<p><a href="https://docs.docker.com/" class="bare">https://docs.docker.com/</a></p>
+</div>
+<div class="paragraph">
+<div class="title">Docker实战案例视频课程</div>
+<p>此课程很不错，推荐 <a href="http://edu.51cto.com/course/course_id-4238.html" class="bare">http://edu.51cto.com/course/course_id-4238.html</a></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="true--23"><a class="anchor" href="#true--23"></a>13. 索引</h2>
 <div class="sectionbody">
 
 </div>
@@ -3029,7 +3728,8 @@ root@ubuntu:~# docker run --name=gitlab -d \
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-06 09:36:08
+Version 1.0.0<br>
+Last updated 2015-11-07 07:40:16
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/github.min.css">
