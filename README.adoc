@@ -1,9 +1,0 @@
-# Docker_ABC
-
-Docker 入门文档
-
-PDF下载 : https://github.com/gudaoxuri/Docker_ABC/raw/master/export/docker_abc.pdf
-
-HTML下载 : https://github.com/gudaoxuri/Docker_ABC/blob/master/docker_abc.html
-
-自行构建 : 建议使用AsciidocFX
