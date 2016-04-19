@@ -1,0 +1,128 @@
+== 热点问题
+
+=== 容器如何使用静态IP
+
+默认情况下Docker容器的IP是动态分配的，要使用静态IP时我们会思考一下：
+
+为什么需要静态IP？如果是为了两个容器间通信可以 
+
+.. 使用`--link`
+.. 指定`-h`来指定hostname并指定`-dns`到宿主机
+.. 让容器开放上层服务
+
+如果这样都满足不了您的要求那么可以参考 http://huataihuang.github.io/2014/10/05/docker-container-static-ip/ 此文实现
+
+=== 如何为运行中的容器增加访问端口[[qanda-add-port-to-alive-container]]
+
+[source,bash]
+----
+iptables -t nat -A  DOCKER -p tcp --dport <外部映射端口> -j DNAT --to-destination <宿主机IP>:<容器新加的端口>
+----
+http://stackoverflow.com/questions/19897743/exposing-a-port-on-a-live-docker-container
+
+=== 让Docker容器使用静态独立的外部IP（便于集群组建）
+
+需要使用Docker虚拟化Hadoop/Spark等测试环境，并且要可以对外提供服务，要求是完全分布式的部署（尽量模拟生产环境）。那么我们会遇到几个问题：
+
+..  Container IP 是动态分配的
+..  Container IP 是内部IP，外部无法访问（如对外提供HDFS服务可能会遇到Client无法访问DataNode，因为DataNode注册的是内部IP）
+
+针对第一个问题有不少的方案，可以指定静态的IP，对第二个问题，我们可以使用--net=host解决，但这会导致对外只有一个IP，集群各个Slave的端口都要修改。至于pipework简单地看了下，好像也解决不了。
+
+所以目前看上去只能使用看上去不是很优雅的方案解决:**为Docker宿主网卡绑定多个IP，把这些IP分配给不同的容器。*
+
+[source,bash]
+----
+//这是示例，我是在windows下用Docker toolbox运行的
+root@default:~# ifconfig
+docker0   Link encap:Ethernet  HWaddr 02:42:8C:8E:80:F1  
+          inet addr:172.17.42.1  Bcast:0.0.0.0  Mask:255.255.0.0
+          UP BROADCAST MULTICAST  MTU:1500  Metric:1
+          RX packets:0 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
+
+eth0      Link encap:Ethernet  HWaddr 08:00:27:24:D1:F5  
+          inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe24:d1f5/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:222 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:164 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:32277 (31.5 KiB)  TX bytes:28136 (27.4 KiB)
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B  
+          inet addr:192.168.99.100  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe76:1d9b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:66 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:64 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:9001 (8.7 KiB)  TX bytes:10469 (10.2 KiB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:16 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:16 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:0 
+          RX bytes:1152 (1.1 KiB)  TX bytes:1152 (1.1 KiB)
+
+//eth1网卡是可以与外部交互，所以我们添加IP到这个网卡上
+//第一步：添加了两个IP           
+root@default:~# ifconfig eth1:0 192.168.99.10 netmask 255.255.255.0 up
+root@default:~# ifconfig eth1:1 192.168.99.11 netmask 255.255.255.0 up
+//再次查看，多了两个IP
+root@default:~# ifconfig
+...
+
+eth1      Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B  
+          inet addr:192.168.99.100  Bcast:192.168.99.255  Mask:255.255.255.0
+          inet6 addr: fe80::a00:27ff:fe76:1d9b/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:2258 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:1685 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:207033 (202.1 KiB)  TX bytes:209587 (204.6 KiB)
+
+eth1:0    Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B  
+          inet addr:192.168.99.10  Bcast:192.168.99.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+
+eth1:1    Link encap:Ethernet  HWaddr 08:00:27:76:1D:9B  
+          inet addr:192.168.99.11  Bcast:192.168.99.255  Mask:255.255.255.0
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+...
+
+//第二步：运行容器，指定IP，这里的示例容器开启的SSH服务，后面拿它测试
+root@default:~# docker run -d -p 192.168.99.10:222:22 --name ssh1 gudaoxuri/scala-2.11-env
+root@default:~# docker run -d -p 192.168.99.11:222:22 --name ssh2 gudaoxuri/scala-2.11-env
+root@default:~# docker ps
+CONTAINER ID        IMAGE                      COMMAND               CREATED             STATUS              PORTS                       NAMES
+ab024af9c954        gudaoxuri/scala-2.11-env   "/usr/sbin/sshd -D"   4 seconds ago       Up 3 seconds        192.168.99.11:222->22/tcp   ssh2
+259351134d16        gudaoxuri/scala-2.11-env   "/usr/sbin/sshd -D"   15 seconds ago      Up 14 seconds       192.168.99.10:222->22/tcp   ssh1
+
+//测试连接，在Docker宿主机上SSH到第一个容器
+root@default:~# ssh 192.168.99.10 -p222
+The authenticity of host '[192.168.99.10]:222 ([192.168.99.10]:222)' can't be established.
+RSA key fingerprint is ac:fe:4b:89:f8:51:b7:e9:9c:34:62:f9:80:38:4b:bf.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[192.168.99.10]:222' (RSA) to the list of known hosts.
+root@192.168.99.10's password: 
+Last login: Wed Oct  7 13:12:35 2015 from 192.168.99.1
+//成功进入
+[root@259351134d16 ~]# 
+//在第一个容器中SSH到第二个容器
+[root@259351134d16 ~]# ssh 192.168.99.11 -p222
+root@192.168.99.11's password: 
+Last login: Wed Oct  7 13:14:53 2015 from 172.17.42.1
+//也OK了
+[root@ab024af9c954 ~]#
+----
+
+参考我的Blog http://my.oschina.net/gudaoxuri/blog/513923
+
+
+

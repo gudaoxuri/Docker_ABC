@@ -1,0 +1,32 @@
+== 生态系统
+
+随着Docker如火如荼地发展，它的应用场景也越来越广泛，群众的想像力是无限的，这导致了Docker本身的功能往往无法满足人们凶残的需求，所以产生了一大堆的扩展应用，Docker与这些扩展应用、“寄生”公司相辅相成，共同发展。
+
+下面介绍几个不错的扩展
+
+=== Docker Toolbox
+
+请您在Windows下使用Docker，实际上就是安装了个Visual Box ~~
+
+https://www.docker.com/docker-toolbox
+
+=== Kitematic
+
+Docker官方推荐的GUI工具
+
+image::images/ecosys_kitematic.png[]
+
+https://kitematic.com/
+
+=== pipework
+
+一个功能多多的网络扩展工具包
+
+https://github.com/jpetazzo/pipework
+
+=== Docker Swarm
+
+让Docker运行在多个宿主机上
+
+http://docs.docker.com/swarm/install-w-machine/
+
